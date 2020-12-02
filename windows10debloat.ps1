@@ -240,7 +240,7 @@ Function InstallTitusProgs {
 	choco install chocolatey-core.extension -y
 	Write-Output "Running O&O Shutup with Recommended Settings"
 	Import-Module BitsTransfer
-	Start-BitsTransfer -Source "https://raw.githubusercontent.com/ChrisTitusTech/win10script/master/ooshutup10.cfg" -Destination ooshutup10.cfg
+	Start-BitsTransfer -Source "https://raw.githubusercontent.com/kilger/Windows10/blob/main/ooshutup10.cfg" -Destination ooshutup10.cfg
 	Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
 	./OOSU10.exe ooshutup10.cfg /quiet
 }
@@ -289,7 +289,7 @@ Function InstallIrfanview {
 
 Function ChangeDefaultApps {
 	Write-Output "Setting Default Programs - Notepad++ Brave VLC IrFanView"
-	Start-BitsTransfer -Source "https://raw.githubusercontent.com/ChrisTitusTech/win10script/master/MyDefaultAppAssociations.xml" -Destination $HOME\Desktop\MyDefaultAppAssociations.xml
+	Start-BitsTransfer -Source "https://raw.githubusercontent.com/kilger/Windows10/main/MyDefaultAppAssociations.xml" -Destination $HOME\Desktop\MyDefaultAppAssociations.xml
 	dism /online /Import-DefaultAppAssociations:"%UserProfile%\Desktop\MyDefaultAppAssociations.xml"
 }
 
@@ -2668,3 +2668,4 @@ If ($args) {
 
 # Call the desired tweak functions
 $tweaks | ForEach { Invoke-Expression $_ }
+
